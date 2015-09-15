@@ -2,6 +2,33 @@
 
 int table[2][2][2][2][2][2][2];
 
+int getResult(int data[100][100], int N, int M) {
+    int result = 0;
+    int code[8];
+    int i, j, a;
+
+    for (i = 0; i < N; i++) {
+        for (j = (M - 1); j >= 0; j--) {
+            if (data[i][j] == 1) {
+                int left = j - 55;
+                int right = j;
+                for (a = 0; a < 8; a++) {
+                    code[a] = table[data[i][left]][data[i][left + 1]][data[i][left + 2]][data[i][left + 3]][data[i][left + 4]][data[i][left + 5]][data[i][left + 6]];
+                    left += 7;
+                }
+                int check = (code[0] + code[2] + code[4] + code[6]) * 3 + (code[1] + code[3] + code[5] + code[7]);
+                if (check % 10 == 0) {
+                    result = code[0] + code[1] + code[2] + code[3] + code[4] + code[5] + code[6] + code[7];
+                }
+                return result;
+            }
+        }
+    }
+
+    return result;
+
+}
+
 int main() {
     table[0][0][0][1][1][0][1] = 0;
     table[0][0][1][1][0][0][1] = 1;
@@ -29,5 +56,7 @@ int main() {
                 data[j][k] = str[k] - 48;
             }
         }
+        int result = getResult(data, N, M);
+        printf("#%d %d\n", (i + 1), result);
     }
 }

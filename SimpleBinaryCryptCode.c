@@ -24,7 +24,7 @@ int main() {
         scanf("%d %d", &N, &M);
         for (j = 0; j < N; j++) {
             char str[102];
-            scanf("%s", &str);
+            scanf("%s", str);
             for (k = 0; k < M; k++) {
                 data[j][k] = str[k] - 48;
             }

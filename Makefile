@@ -2,7 +2,7 @@ SRCS = $(wildcard *.c)
 
 CFLAGS = -Wall -g -m64 -fPIC
 
-PROGS = bin/$(patsubst %.c,%,$(SRCS))
+PROGS = $(patsubst %.c,bin/%,$(SRCS))
 
 all: $(PROGS)
 

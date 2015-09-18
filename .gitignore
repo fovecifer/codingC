@@ -33,3 +33,6 @@
 
 #Netbeans
 nbproject
+
+#swp
+*.swp

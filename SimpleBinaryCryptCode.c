@@ -11,7 +11,6 @@ int getResult(int data[100][100], int N, int M) {
         for (j = (M - 1); j >= 0; j--) {
             if (data[i][j] == 1) {
                 int left = j - 55;
-                int right = j;
                 for (a = 0; a < 8; a++) {
                     code[a] = table[data[i][left]][data[i][left + 1]][data[i][left + 2]][data[i][left + 3]][data[i][left + 4]][data[i][left + 5]][data[i][left + 6]];
                     left += 7;
@@ -59,4 +58,5 @@ int main() {
         int result = getResult(data, N, M);
         printf("#%d %d\n", (i + 1), result);
     }
+    return 0;
 }

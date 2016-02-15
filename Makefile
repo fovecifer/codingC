@@ -1,14 +1,16 @@
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard src/*.c)
+
+SRCS2 = $(notdir $(SRCS))
 
 CFLAGS = -Wall -g -m64 -fPIC
 
-PROGS = $(patsubst %.c,bin/%,$(SRCS))
+PROGS = $(patsubst %.c,bin/%,$(SRCS2))
 
 all: $(PROGS)
 
 clean:
 	rm -rf bin/*
 
-bin/%: %.c
+bin/%: src/%.c
 
 	$(CC) $(CFLAGS)  -o $@ $<

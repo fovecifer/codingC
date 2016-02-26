@@ -2,7 +2,7 @@ SRCS = $(wildcard src/*.c)
 
 SRCS2 = $(notdir $(SRCS))
 
-CFLAGS = -Wall -g -m64 -fPIC
+CFLAGS = -Wall -g -pg -m64 -fPIC
 
 PROGS = $(patsubst %.c,bin/%,$(SRCS2))
 
